@@ -67,19 +67,33 @@ const Slider = styled.div`
   align-items: center;
 `;
 
-function HotPolicy() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const cardWidth = 300;
-  const totalCards = 6;
-  const maxScrollPosition = cardWidth * (totalCards - 1);
+interface CardData {
+  title: string;
+  text: string;
+}
 
-  const scrollLeft = () => {
+function HotPolicy() {
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const cardWidth: number = 300;
+  const totalCards: number = 6;
+  const maxScrollPosition: number = cardWidth * (totalCards - 1);
+
+  const scrollLeft = (): void => {
     setScrollPosition((prev) => (prev - cardWidth < 0 ? maxScrollPosition : prev - cardWidth));
   };
 
-  const scrollRight = () => {
+  const scrollRight = (): void => {
     setScrollPosition((prev) => (prev + cardWidth > maxScrollPosition ? 0 : prev + cardWidth));
   };
+
+  const cardData: CardData[] = [
+    { title: '이상혁', text: '프론트엔드' },
+    { title: '황지훈', text: '백엔드' },
+    { title: '김민솔', text: '디자인' },
+    { title: '권재헌', text: '무전공' },
+    { title: '박승일', text: 'AI' },
+    { title: '김태은', text: '백엔드' },
+  ];
 
   return (
     <>
@@ -93,12 +107,9 @@ function HotPolicy() {
             <ArrowSign onClick={scrollLeft} />
             <CardWrapper style={{ transform: `translateX(-${scrollPosition}px)` }}>
               <Slider>
-                <Card title={'이상혁'} text={'프론트엔드'} />
-                <Card title={'황지훈'} text={'백엔드'} />
-                <Card title={'김민솔'} text={'디자인'} />
-                <Card title={'권재헌'} text={'무전공'} />
-                <Card title={'박승일'} text={'AI'} />
-                <Card title={'김태은'} text={'백엔드'} />
+                {cardData.map((card, index) => (
+                  <Card key={index} title={card.title} text={card.text} />
+                ))}
               </Slider>
             </CardWrapper>
             <ArrowSign onClick={scrollRight} />
