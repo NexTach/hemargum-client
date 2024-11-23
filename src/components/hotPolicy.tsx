@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Card from './card';
 
 const PolicyWrapper = styled.div`
   width: 100vw;
@@ -40,15 +41,6 @@ const CardWrapper = styled.div`
   flex-direction: row;
 `;
 
-const Card = styled.div`
-  width: 284px;
-  height: 192px;
-  border-radius: 10px;
-  border: 1px solid rgba(250, 250, 250, 1);
-  background-color: black;
-  margin: 12px;
-`;
-
 const ArrowSign = styled.div`
   width: 36px;
   height: 36px;
@@ -60,6 +52,17 @@ const DragWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+  overflow: hidden;
+`;
+
+const Slider1 = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Slider2 = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 function HotPolicy() {
@@ -74,9 +77,16 @@ function HotPolicy() {
           <DragWrapper>
             <ArrowSign />
             <CardWrapper>
-              <Card />
-              <Card />
-              <Card />
+              <Slider1>
+                <Card title={'이상혁'} text={'프론트엔드'} />
+                <Card title={'황지훈'} text={'백엔드'} />
+                <Card title={'김민솔'} text={'디자인'} />
+              </Slider1>
+              <Slider2>
+                <Card title={'권재헌'} text={'무전공'} />
+                <Card title={'박승일'} text={'AI'} />
+                <Card title={'김태은'} text={'백엔드'} />
+              </Slider2>
             </CardWrapper>
             <ArrowSign />
           </DragWrapper>
