@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Card from './card';
+import { useState } from 'react';
 
 const PolicyWrapper = styled.div`
   width: 100%;
@@ -39,12 +40,16 @@ const TitleGreen = styled.p`
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
 `;
 
 const ArrowSign = styled.div`
   width: 36px;
   height: 36px;
   background-color: red;
+  cursor: pointer;
 `;
 
 const DragWrapper = styled.div`
@@ -53,19 +58,25 @@ const DragWrapper = styled.div`
   justify-content: center;
   margin-top: 20px;
   overflow: hidden;
+  width: 100%;
 `;
 
-const Slider1 = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const Slider2 = styled.div`
+const Slider = styled.div`
   display: flex;
   align-items: center;
 `;
 
 function HotPolicy() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const scrollLeft = () => {
+    setScrollPosition((prev) => Math.max(prev - 300, 0));
+  };
+
+  const scrollRight = () => {
+    setScrollPosition((prev) => prev + 300);
+  };
+
   return (
     <>
       <PolicyWrapper>
@@ -75,20 +86,18 @@ function HotPolicy() {
             <TitleGreen>HOT</TitleGreen>한 정책
           </TitleWrapper>
           <DragWrapper>
-            <ArrowSign />
-            <CardWrapper>
-              <Slider1>
+            <ArrowSign onClick={scrollLeft} />
+            <CardWrapper style={{ transform: `translateX(-${scrollPosition}px)` }}>
+              <Slider>
                 <Card title={'이상혁'} text={'프론트엔드'} />
                 <Card title={'황지훈'} text={'백엔드'} />
                 <Card title={'김민솔'} text={'디자인'} />
-              </Slider1>
-              <Slider2>
                 <Card title={'권재헌'} text={'무전공'} />
                 <Card title={'박승일'} text={'AI'} />
                 <Card title={'김태은'} text={'백엔드'} />
-              </Slider2>
+              </Slider>
             </CardWrapper>
-            <ArrowSign />
+            <ArrowSign onClick={scrollRight} />
           </DragWrapper>
         </PolicyBox>
       </PolicyWrapper>
