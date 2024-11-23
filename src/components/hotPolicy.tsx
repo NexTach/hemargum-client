@@ -43,7 +43,6 @@ const CardWrapper = styled.div`
   overflow-x: auto;
   scroll-behavior: smooth;
   width: 100%;
-  transition: transform 0.5s ease-in-out;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -65,11 +64,13 @@ const DragWrapper = styled.div`
   margin-top: 20px;
   overflow: hidden;
   width: 100%;
+  transition: transform 0.5s ease-in-out;
 `;
 
 const Slider = styled.div`
   display: flex;
   align-items: center;
+  transition: transform 0.5s ease-in-out;
 `;
 
 interface CardData {
@@ -79,6 +80,7 @@ interface CardData {
 
 function HotPolicy() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const cardWrapperRef = useRef<HTMLDivElement>(null);
   const cardWidth: number = 300;
   const totalCards: number = 6;
@@ -104,36 +106,48 @@ function HotPolicy() {
   };
 
   const scrollLeft = (): void => {
-    const cardWrapper = cardWrapperRef.current;
-    if (cardWrapper) {
-      if (scrollPosition === 0) {
-        cardWrapper.scrollTo({
-          left: maxScrollPosition,
-          behavior: 'smooth',
-        });
-      } else {
-        cardWrapper.scrollTo({
-          left: scrollPosition - cardWidth,
-          behavior: 'smooth',
-        });
+    if (!isScrolling) {
+      setIsScrolling(true);
+      const cardWrapper = cardWrapperRef.current;
+      if (cardWrapper) {
+        if (scrollPosition === 0) {
+          cardWrapper.scrollTo({
+            left: maxScrollPosition,
+            behavior: 'smooth',
+          });
+        } else {
+          cardWrapper.scrollTo({
+            left: scrollPosition - cardWidth,
+            behavior: 'smooth',
+          });
+        }
+        setTimeout(() => {
+          setIsScrolling(false);
+        }, 500);
       }
     }
   };
 
   const scrollRight = (): void => {
-    const cardWrapper = cardWrapperRef.current;
-    if (cardWrapper) {
-      const maxScrollLeft = cardWrapper.scrollWidth - cardWrapper.clientWidth;
-      if (scrollPosition >= maxScrollLeft) {
-        cardWrapper.scrollTo({
-          left: 0,
-          behavior: 'smooth',
-        });
-      } else {
-        cardWrapper.scrollTo({
-          left: scrollPosition + cardWidth,
-          behavior: 'smooth',
-        });
+    if (!isScrolling) {
+      setIsScrolling(true);
+      const cardWrapper = cardWrapperRef.current;
+      if (cardWrapper) {
+        const maxScrollLeft = cardWrapper.scrollWidth - cardWrapper.clientWidth;
+        if (scrollPosition >= maxScrollLeft) {
+          cardWrapper.scrollTo({
+            left: 0,
+            behavior: 'smooth',
+          });
+        } else {
+          cardWrapper.scrollTo({
+            left: scrollPosition + cardWidth,
+            behavior: 'smooth',
+          });
+        }
+        setTimeout(() => {
+          setIsScrolling(false);
+        }, 500);
       }
     }
   };
@@ -158,7 +172,7 @@ function HotPolicy() {
           <DragWrapper>
             <ArrowSign onClick={scrollLeft} />
             <CardWrapper ref={cardWrapperRef}>
-              <Slider>
+              <Slider style={{ transform: `translateX(-${scrollPosition}px)` }}>
                 {cardData.map((card, index) => (
                   <Card key={index} title={card.title} text={card.text} />
                 ))}
