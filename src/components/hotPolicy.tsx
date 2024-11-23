@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Card from './card';
 
 const PolicyWrapper = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 370px;
   display: flex;
   justify-content: center;

@@ -4,7 +4,7 @@ import Logo from '../assets/Logo';
 
 const HeaderWrapper = styled.div`
   height: 64px;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(68, 190, 118, 1);
   display: flex;
   align-items: center;
@@ -30,11 +30,15 @@ const Text = styled.p`
 `;
 
 function Header() {
+  const languageChange = () => {};
+
   return (
     <HeaderWrapper>
       <Logo />
       <SvgWrapper>
-        <LanguageChange />
+        <div onClick={languageChange}>
+          <LanguageChange />
+        </div>
         <Text>Sign In</Text>
       </SvgWrapper>
     </HeaderWrapper>
