@@ -43,6 +43,7 @@ const CardWrapper = styled.div`
   overflow-x: auto;
   scroll-behavior: smooth;
   width: 100%;
+  transition: transform 0.5s ease-in-out;
 `;
 
 const ArrowSign = styled.div`
