@@ -44,6 +44,11 @@ const CardWrapper = styled.div`
   scroll-behavior: smooth;
   width: 100%;
   transition: transform 0.5s ease-in-out;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const ArrowSign = styled.div`
