@@ -106,20 +106,35 @@ function HotPolicy() {
   const scrollLeft = (): void => {
     const cardWrapper = cardWrapperRef.current;
     if (cardWrapper) {
-      cardWrapper.scrollTo({
-        left: scrollPosition - cardWidth,
-        behavior: 'smooth',
-      });
+      if (scrollPosition === 0) {
+        cardWrapper.scrollTo({
+          left: maxScrollPosition,
+          behavior: 'smooth',
+        });
+      } else {
+        cardWrapper.scrollTo({
+          left: scrollPosition - cardWidth,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
   const scrollRight = (): void => {
     const cardWrapper = cardWrapperRef.current;
     if (cardWrapper) {
-      cardWrapper.scrollTo({
-        left: scrollPosition + cardWidth,
-        behavior: 'smooth',
-      });
+      const maxScrollLeft = cardWrapper.scrollWidth - cardWrapper.clientWidth;
+      if (scrollPosition >= maxScrollLeft) {
+        cardWrapper.scrollTo({
+          left: 0,
+          behavior: 'smooth',
+        });
+      } else {
+        cardWrapper.scrollTo({
+          left: scrollPosition + cardWidth,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
