@@ -9,6 +9,7 @@ const CardBox = styled.div`
   border-radius: 10px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 12px;
+  position: relative;
 `;
 
 const CardTitle = styled.p`
@@ -38,6 +39,12 @@ const TextWrapper = styled.div`
   flex-direction: column;
 `;
 
+const ArrowWrapper = styled.div`
+  position: absolute;
+  top: 130px;
+  left: 220px;
+`;
+
 // Props 타입 정의
 interface Card {
   title: string;
@@ -59,7 +66,9 @@ function Card({ title, text }: Card) {
         <CardTitle>{Title}</CardTitle>
         <CardText>{Text}</CardText>
       </TextWrapper>
-      <ArrowSvg />
+      <ArrowWrapper>
+        <ArrowSvg />
+      </ArrowWrapper>
     </CardBox>
   );
 }
