@@ -211,13 +211,20 @@ function Navigation() {
   ];
 
   const hospitalCardData: CardData[] = [
-    { title: '박승일', text: 'AI' },
+    { title: '', text: '' },
     { title: '김태은', text: '백엔드' },
   ];
 
   const jobCardData: CardData[] = [
-    { title: '이상혁', text: '프론트엔드' },
-    { title: '황지훈', text: '백엔드' },
+    { title: '고용허가제 정보', text: 'https://www.hrdkorea.or.kr/1/3/4?k=50537&pageNo=&searchType=&searchText=' },
+    {
+      title: '고용허가 발급',
+      text: 'https://www.work24.go.kr/cm/z/b/0210/openLginPage.do?loginMessage=3&forwardUrl=/ep/a/a/0001/hpepaa0001m01bplcPost.do',
+    },
+    { title: '한국어능력시험', text: 'https://www.hrdkorea.or.kr/1/3/3/2/1' },
+    { title: '보험가입', text: 'https://www.hrdkorea.or.kr/1/3/3/2/2' },
+    { title: '채용공고', text: 'https://eps.hrdkorea.or.kr/e9/user/jobMatching/jobRecruit.do?method=recruitList' },
+    { title: '기업 PR', text: 'https://eps.hrdkorea.or.kr/e9/user/jobMatching/jobRecruit.do?method=prList' },
   ];
 
   const cardData: CardData[] = (() => {
