@@ -58,7 +58,7 @@ function Card({ title, text }: Card) {
   useEffect(() => {
     setTitle(title);
     setText(text);
-  }, [title, text]); // title과 text가 변경될 때마다 실행
+  }, [title, text]);
 
   return (
     <CardBox>

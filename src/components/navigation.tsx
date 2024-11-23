@@ -133,7 +133,7 @@ interface CardData {
   text: string;
 }
 
-function Welfare() {
+function Navigation() {
   const [activeLogo, setActiveLogo] = useState<LogoType>('education');
 
   const handleClick = (logo: LogoType) => {
@@ -200,14 +200,40 @@ function Welfare() {
     }
   };
 
-  const cardData: CardData[] = [
+  const educationCardData: CardData[] = [
     { title: '이상혁', text: '프론트엔드' },
     { title: '황지훈', text: '백엔드' },
+  ];
+
+  const homeCardData: CardData[] = [
     { title: '김민솔', text: '디자인' },
     { title: '권재헌', text: '무전공' },
+  ];
+
+  const hospitalCardData: CardData[] = [
     { title: '박승일', text: 'AI' },
     { title: '김태은', text: '백엔드' },
   ];
+
+  const jobCardData: CardData[] = [
+    { title: '이상혁', text: '프론트엔드' },
+    { title: '황지훈', text: '백엔드' },
+  ];
+
+  const cardData: CardData[] = (() => {
+    switch (activeLogo) {
+      case 'education':
+        return educationCardData;
+      case 'home':
+        return homeCardData;
+      case 'hospital':
+        return hospitalCardData;
+      case 'job':
+        return jobCardData;
+      default:
+        return [];
+    }
+  })();
 
   return (
     <WelfareWrapper>
@@ -262,4 +288,4 @@ function Welfare() {
   );
 }
 
-export default Welfare;
+export default Navigation;
