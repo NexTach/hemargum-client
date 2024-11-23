@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ArrowSvg from '../assets/arrowSign';
 
-// 스타일 정의
 const CardBox = styled.div`
   width: 284px;
   height: 192px;
@@ -32,6 +31,9 @@ const CardText = styled.p`
   width: 240px;
   height: 107px;
   margin: 0 22px 0 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const TextWrapper = styled.div`
@@ -45,7 +47,6 @@ const ArrowWrapper = styled.div`
   left: 220px;
 `;
 
-// Props 타입 정의
 interface Card {
   title: string;
   text: string;

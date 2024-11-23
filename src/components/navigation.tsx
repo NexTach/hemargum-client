@@ -11,7 +11,6 @@ import HomeSvg from '../assets/homeSvg';
 import Card from './card';
 import CardArrowSignSvg from '../assets/cardArrowSignSvg';
 
-// 스타일 정의
 const WelfareWrapper = styled.div`
   width: 100%;
   height: 600px;
@@ -60,7 +59,6 @@ const NavBar = styled.div`
   align-items: center;
 `;
 
-// Logo 컴포넌트에 사용자 정의 속성 'isVisible'을 추가
 const Logo = styled.div<{ isActive: boolean }>`
   background: ${(props) => (props.isActive ? '#fff' : 'var(--Green, #44be76)')};
   padding: 10px;
@@ -71,7 +69,6 @@ const Logo = styled.div<{ isActive: boolean }>`
   justify-content: center;
 `;
 
-// LogoText에서 isVisible 속성 타입을 정의
 const LogoText = styled.span<{ isVisible: boolean }>`
   color: #44be76;
   font-family: Pretendard;
@@ -125,7 +122,6 @@ const PolicyBox = styled.div`
   margin-bottom: 115px;
 `;
 
-// 컴포넌트 정의
 type LogoType = 'education' | 'home' | 'hospital' | 'job';
 
 interface CardData {
