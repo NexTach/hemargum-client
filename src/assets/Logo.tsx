@@ -1,10 +1,4 @@
-import styled from 'styled-components';
-
-const MainLogo = styled.div`
-  height: 32px;
-  width: 116px;
-  background-color: tomato;
-`;
+import MainLogo from './mainLogoSvg';
 
 function Logo() {
   return <MainLogo />;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Card from './card';
 import { useState, useRef, useEffect } from 'react';
+import CardArrowSignSvg from '../assets/cardArrowSignSvg';
 
 const PolicyWrapper = styled.div`
   width: 100%;
@@ -14,27 +15,6 @@ const PolicyBox = styled.div`
   width: 1072px;
   height: 370px;
   border-bottom: 1px solid #d9d9d9;
-`;
-
-const TitleWrapper = styled.p`
-  color: #000;
-  font-family: Pretendard;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-`;
-
-const TitleGreen = styled.p`
-  color: #44be76;
-  font-family: Pretendard;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
 `;
 
 const CardWrapper = styled.div`
@@ -51,11 +31,11 @@ const CardWrapper = styled.div`
   }
 `;
 
-const ArrowSign = styled.div`
+const ArrowSign = styled.div<{ rotate?: boolean }>`
   width: 36px;
   height: 36px;
-  background-color: red;
   cursor: pointer;
+  transform: ${({ rotate }) => (rotate ? 'rotate(180deg)' : 'none')};
 `;
 
 const DragWrapper = styled.div`
@@ -151,12 +131,10 @@ function HotPolicy() {
     <>
       <PolicyWrapper>
         <PolicyBox>
-          <TitleWrapper>
-            최근
-            <TitleGreen>HOT</TitleGreen>한 정책
-          </TitleWrapper>
           <DragWrapper>
-            <ArrowSign onClick={scrollLeft} />
+            <ArrowSign onClick={scrollLeft}>
+              <CardArrowSignSvg />
+            </ArrowSign>
             <CardWrapper ref={cardWrapperRef}>
               <Slider>
                 {cardData.map((card, index) => (
@@ -164,7 +142,9 @@ function HotPolicy() {
                 ))}
               </Slider>
             </CardWrapper>
-            <ArrowSign onClick={scrollRight} />
+            <ArrowSign onClick={scrollRight} rotate>
+              <CardArrowSignSvg />
+            </ArrowSign>
           </DragWrapper>
         </PolicyBox>
       </PolicyWrapper>
