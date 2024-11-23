@@ -69,13 +69,16 @@ const Slider = styled.div`
 
 function HotPolicy() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const cardWidth = 300;
+  const totalCards = 6;
+  const maxScrollPosition = cardWidth * (totalCards - 1);
 
   const scrollLeft = () => {
-    setScrollPosition((prev) => Math.max(prev - 300, 0));
+    setScrollPosition((prev) => (prev - cardWidth < 0 ? maxScrollPosition : prev - cardWidth));
   };
 
   const scrollRight = () => {
-    setScrollPosition((prev) => prev + 300);
+    setScrollPosition((prev) => (prev + cardWidth > maxScrollPosition ? 0 : prev + cardWidth));
   };
 
   return (
