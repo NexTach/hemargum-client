@@ -8,6 +8,7 @@ const HeaderWrapper = styled.div`
   background-color: rgba(68, 190, 118, 1);
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const SvgWrapper = styled.div`
