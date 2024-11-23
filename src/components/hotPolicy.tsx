@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Card from './card';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const PolicyWrapper = styled.div`
   width: 100%;
@@ -79,16 +79,48 @@ interface CardData {
 
 function HotPolicy() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const cardWrapperRef = useRef<HTMLDivElement>(null);
   const cardWidth: number = 300;
   const totalCards: number = 6;
   const maxScrollPosition: number = cardWidth * (totalCards - 1);
 
+  useEffect(() => {
+    const cardWrapper = cardWrapperRef.current;
+    if (cardWrapper) {
+      cardWrapper.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (cardWrapper) {
+        cardWrapper.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
+
+  const handleScroll = () => {
+    const cardWrapper = cardWrapperRef.current;
+    if (cardWrapper) {
+      setScrollPosition(cardWrapper.scrollLeft);
+    }
+  };
+
   const scrollLeft = (): void => {
-    setScrollPosition((prev) => (prev - cardWidth < 0 ? maxScrollPosition : prev - cardWidth));
+    const cardWrapper = cardWrapperRef.current;
+    if (cardWrapper) {
+      cardWrapper.scrollTo({
+        left: scrollPosition - cardWidth,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const scrollRight = (): void => {
-    setScrollPosition((prev) => (prev + cardWidth > maxScrollPosition ? 0 : prev + cardWidth));
+    const cardWrapper = cardWrapperRef.current;
+    if (cardWrapper) {
+      cardWrapper.scrollTo({
+        left: scrollPosition + cardWidth,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const cardData: CardData[] = [
@@ -110,7 +142,7 @@ function HotPolicy() {
           </TitleWrapper>
           <DragWrapper>
             <ArrowSign onClick={scrollLeft} />
-            <CardWrapper style={{ transform: `translateX(-${scrollPosition}px)` }}>
+            <CardWrapper ref={cardWrapperRef}>
               <Slider>
                 {cardData.map((card, index) => (
                   <Card key={index} title={card.title} text={card.text} />
