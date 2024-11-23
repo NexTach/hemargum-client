@@ -22,13 +22,28 @@ const WelfareContainer = styled.div`
   height: 520px;
 `;
 
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Title = styled.h1`
+  color: #44be76;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+const TitleBlack = styled.p`
   color: #000;
   font-family: Pretendard;
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-right: 8px;
 `;
 
 const NavBar = styled.div`
@@ -78,12 +93,16 @@ function Welfare() {
   return (
     <WelfareWrapper>
       <WelfareContainer>
-        <Title>
-          {activeLogo === 'education' && '#교육'}
-          {activeLogo === 'home' && '#주거'}
-          {activeLogo === 'hospital' && '#병원'}
-          {activeLogo === 'job' && '#취업'}
-        </Title>
+        <TitleWrapper>
+          <Title>
+            {activeLogo === 'education' && '#교육'}
+            {activeLogo === 'home' && '#주거'}
+            {activeLogo === 'hospital' && '#병원'}
+            {activeLogo === 'job' && '#취업'}
+          </Title>
+          <TitleBlack>에 관한</TitleBlack>
+          <Title>복지</Title>
+        </TitleWrapper>
         <NavBar>
           <Logo isActive={activeLogo === 'education'} onClick={() => handleClick('education')}>
             {activeLogo === 'education' ? <EducationSvgRe /> : <EducationSvg />}
