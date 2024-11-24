@@ -197,18 +197,27 @@ function Navigation() {
   };
 
   const educationCardData: CardData[] = [
-    { title: '이상혁', text: '프론트엔드' },
-    { title: '황지훈', text: '백엔드' },
+    { title: '교육자료', text: 'https://okep.moe.go.kr/root/index.do?utm_source=chatgpt.com' },
+    { title: '한국어능력시험', text: 'https://www.hrdkorea.or.kr/1/3/3/2/1' },
+    { title: '한국어 실력평가', text: 'https://nuri.iksi.or.kr/front/page/participation/onlineLevelTest/main.do' },
+    { title: '한국어 문법 학습', text: 'https://nuri.iksi.or.kr/front/cms/contents/practice/list.do' },
+    {
+      title: '한국어 어휘 학습',
+      text: 'https://nuri.iksi.or.kr/front/cms/contents/layout2/learningdictionary/contentsList.do',
+    },
   ];
 
   const homeCardData: CardData[] = [
-    { title: '김민솔', text: '디자인' },
-    { title: '권재헌', text: '무전공' },
+    { title: '숙박신고', text: 'https://kstay.hikorea.go.kr/index.do' },
+    { title: '주거22', text: 'ㅇ' },
   ];
 
   const hospitalCardData: CardData[] = [
-    { title: '', text: '' },
-    { title: '김태은', text: '백엔드' },
+    {
+      title: '법무부지정 의료기관',
+      text: 'https://www.hikorea.go.kr/board/BoardNtcDetailR.pt?BBS_SEQ=1&BBS_GB_CD=BS10&NTCCTT_SEQ=365&page=1',
+    },
+    { title: '의료', text: 'ㅇ' },
   ];
 
   const jobCardData: CardData[] = [
@@ -217,10 +226,10 @@ function Navigation() {
       title: '고용허가 발급',
       text: 'https://www.work24.go.kr/cm/z/b/0210/openLginPage.do?loginMessage=3&forwardUrl=/ep/a/a/0001/hpepaa0001m01bplcPost.do',
     },
-    { title: '한국어능력시험', text: 'https://www.hrdkorea.or.kr/1/3/3/2/1' },
     { title: '보험가입', text: 'https://www.hrdkorea.or.kr/1/3/3/2/2' },
     { title: '채용공고', text: 'https://eps.hrdkorea.or.kr/e9/user/jobMatching/jobRecruit.do?method=recruitList' },
     { title: '기업 PR', text: 'https://eps.hrdkorea.or.kr/e9/user/jobMatching/jobRecruit.do?method=prList' },
+    { title: '서울특별시 일자리', text: 'https://global.seoul.go.kr/web/work/workListPage.do?lang=ko' },
   ];
 
   const cardData: CardData[] = (() => {

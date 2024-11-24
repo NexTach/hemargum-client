@@ -133,12 +133,9 @@ function HotPolicy() {
   };
 
   const cardData: CardData[] = [
-    { title: '이상혁', text: '프론트엔드' },
-    { title: '황지훈', text: '백엔드' },
-    { title: '김민솔', text: '디자인' },
-    { title: '권재헌', text: '무전공' },
-    { title: '박승일', text: 'AI' },
-    { title: '김태은', text: '백엔드' },
+    { title: '한국 관광안내', text: 'https://www.ivisitkorea.com/ko/' },
+    { title: '한국 행사안내', text: 'https://www.korea.net/' },
+    { title: 'TOPIK', text: 'https://www.topik.go.kr/TWMAIN/TWMAIN0010.do' },
   ];
 
   return (
