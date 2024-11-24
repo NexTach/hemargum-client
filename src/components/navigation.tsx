@@ -207,17 +207,17 @@ function Navigation() {
     },
   ];
 
-  const homeCardData: CardData[] = [
-    { title: '숙박신고', text: 'https://kstay.hikorea.go.kr/index.do' },
-    { title: '주거22', text: '주거22' },
-  ];
+  const homeCardData: CardData[] = [{ title: '숙박신고', text: 'https://kstay.hikorea.go.kr/index.do' }];
 
   const hospitalCardData: CardData[] = [
     {
       title: '법무부지정 의료기관',
       text: 'https://www.hikorea.go.kr/board/BoardNtcDetailR.pt?BBS_SEQ=1&BBS_GB_CD=BS10&NTCCTT_SEQ=365&page=1',
     },
-    { title: '의료', text: 'ㅇ' },
+    {
+      title: '건강보험 적용안내',
+      text: 'https://www.nhis.or.kr/renewal_popup/imgPopup201906_001/index.html?utm_source=chatgpt.com',
+    },
   ];
 
   const jobCardData: CardData[] = [
