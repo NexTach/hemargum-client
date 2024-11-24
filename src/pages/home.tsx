@@ -1,7 +1,7 @@
 import Header from '../components/header';
 import HotPolicy from '../components/hotPolicy';
 import Introduce from '../components/introduce';
-import Welfare from '../components/welfare';
+import Navigation from '../components/navigation';
 
 function Home() {
   return (
@@ -9,7 +9,7 @@ function Home() {
       <Header />
       <Introduce />
       <HotPolicy />
-      <Welfare />
+      <Navigation />
     </>
   );
 }

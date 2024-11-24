@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import ArrowSvg from '../assets/arrowSign';
 import { useNavigate } from 'react-router-dom';
 
-// 스타일 정의
 const CardBox = styled.div`
   width: 284px;
   height: 192px;
@@ -33,6 +32,9 @@ const CardText = styled.p`
   width: 240px;
   height: 107px;
   margin: 0 22px 0 22px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const TextWrapper = styled.div`
@@ -46,7 +48,6 @@ const ArrowWrapper = styled.div`
   left: 220px;
 `;
 
-// Props 타입 정의
 interface Card {
   title: string;
   text: string;
@@ -61,7 +62,7 @@ function Card({ title, text }: Card) {
   useEffect(() => {
     setTitle(title);
     setText(text);
-  }, [title, text]); // title과 text가 변경될 때마다 실행
+  }, [title, text]);
 
   return (
     <CardBox>

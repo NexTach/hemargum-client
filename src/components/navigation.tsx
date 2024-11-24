@@ -11,7 +11,6 @@ import HomeSvg from '../assets/homeSvg';
 import Card from './card';
 import CardArrowSignSvg from '../assets/cardArrowSignSvg';
 
-// 스타일 정의
 const WelfareWrapper = styled.div`
   width: 100%;
   height: 600px;
@@ -60,7 +59,6 @@ const NavBar = styled.div`
   align-items: center;
 `;
 
-// Logo 컴포넌트에 사용자 정의 속성 'isVisible'을 추가
 const Logo = styled.div<{ isActive: boolean }>`
   background: ${(props) => (props.isActive ? '#fff' : 'var(--Green, #44be76)')};
   padding: 10px;
@@ -71,7 +69,6 @@ const Logo = styled.div<{ isActive: boolean }>`
   justify-content: center;
 `;
 
-// LogoText에서 isVisible 속성 타입을 정의
 const LogoText = styled.span<{ isVisible: boolean }>`
   color: #44be76;
   font-family: Pretendard;
@@ -125,7 +122,6 @@ const PolicyBox = styled.div`
   margin-bottom: 115px;
 `;
 
-// 컴포넌트 정의
 type LogoType = 'education' | 'home' | 'hospital' | 'job';
 
 interface CardData {
@@ -133,7 +129,7 @@ interface CardData {
   text: string;
 }
 
-function Welfare() {
+function Navigation() {
   const [activeLogo, setActiveLogo] = useState<LogoType>('education');
 
   const handleClick = (logo: LogoType) => {
@@ -200,14 +196,47 @@ function Welfare() {
     }
   };
 
-  const cardData: CardData[] = [
+  const educationCardData: CardData[] = [
     { title: '이상혁', text: '프론트엔드' },
     { title: '황지훈', text: '백엔드' },
+  ];
+
+  const homeCardData: CardData[] = [
     { title: '김민솔', text: '디자인' },
     { title: '권재헌', text: '무전공' },
-    { title: '박승일', text: 'AI' },
+  ];
+
+  const hospitalCardData: CardData[] = [
+    { title: '', text: '' },
     { title: '김태은', text: '백엔드' },
   ];
+
+  const jobCardData: CardData[] = [
+    { title: '고용허가제 정보', text: 'https://www.hrdkorea.or.kr/1/3/4?k=50537&pageNo=&searchType=&searchText=' },
+    {
+      title: '고용허가 발급',
+      text: 'https://www.work24.go.kr/cm/z/b/0210/openLginPage.do?loginMessage=3&forwardUrl=/ep/a/a/0001/hpepaa0001m01bplcPost.do',
+    },
+    { title: '한국어능력시험', text: 'https://www.hrdkorea.or.kr/1/3/3/2/1' },
+    { title: '보험가입', text: 'https://www.hrdkorea.or.kr/1/3/3/2/2' },
+    { title: '채용공고', text: 'https://eps.hrdkorea.or.kr/e9/user/jobMatching/jobRecruit.do?method=recruitList' },
+    { title: '기업 PR', text: 'https://eps.hrdkorea.or.kr/e9/user/jobMatching/jobRecruit.do?method=prList' },
+  ];
+
+  const cardData: CardData[] = (() => {
+    switch (activeLogo) {
+      case 'education':
+        return educationCardData;
+      case 'home':
+        return homeCardData;
+      case 'hospital':
+        return hospitalCardData;
+      case 'job':
+        return jobCardData;
+      default:
+        return [];
+    }
+  })();
 
   return (
     <WelfareWrapper>
@@ -262,4 +291,4 @@ function Welfare() {
   );
 }
 
-export default Welfare;
+export default Navigation;
