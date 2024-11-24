@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ArrowSvg from '../assets/arrowSign';
+import { useNavigate } from 'react-router-dom';
 
 // 스타일 정의
 const CardBox = styled.div`
@@ -55,6 +56,8 @@ function Card({ title, text }: Card) {
   const [Title, setTitle] = useState<string>('');
   const [Text, setText] = useState<string>('');
 
+  const go = useNavigate();
+
   useEffect(() => {
     setTitle(title);
     setText(text);
@@ -66,7 +69,7 @@ function Card({ title, text }: Card) {
         <CardTitle>{Title}</CardTitle>
         <CardText>{Text}</CardText>
       </TextWrapper>
-      <ArrowWrapper>
+      <ArrowWrapper onClick={() => go('/detail')}>
         <ArrowSvg />
       </ArrowWrapper>
     </CardBox>
