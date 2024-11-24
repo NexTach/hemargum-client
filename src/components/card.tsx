@@ -64,13 +64,17 @@ function Card({ title, text }: Card) {
     setText(text);
   }, [title, text]);
 
+  const handleClick = () => {
+    go('/detail', { state: { title, text } });
+  };
+
   return (
-    <CardBox>
+    <CardBox onClick={handleClick}>
       <TextWrapper>
         <CardTitle>{Title}</CardTitle>
         <CardText>{Text}</CardText>
       </TextWrapper>
-      <ArrowWrapper onClick={() => go('/detail')}>
+      <ArrowWrapper>
         <ArrowSvg />
       </ArrowWrapper>
     </CardBox>
