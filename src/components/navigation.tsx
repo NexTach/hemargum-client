@@ -218,6 +218,14 @@ function Navigation() {
       title: '건강보험 적용안내',
       text: 'https://www.nhis.or.kr/renewal_popup/imgPopup201906_001/index.html?utm_source=chatgpt.com',
     },
+    {
+      title: '노인 복지 프로그램',
+      text: 'https://kaswc.or.kr/welfarenews/352804?utm_source=chatgpt.com',
+    },
+    {
+      title: '건강검진',
+      text: 'https://www.liveinkorea.kr/portal/KOR/page/contents.do?pageSeq=309&menuSeq=6869',
+    },
   ];
 
   const jobCardData: CardData[] = [

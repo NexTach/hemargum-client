@@ -136,6 +136,7 @@ function HotPolicy() {
     { title: '한국 관광안내', text: 'https://www.ivisitkorea.com/ko/' },
     { title: '한국 행사안내', text: 'https://www.korea.net/' },
     { title: 'TOPIK', text: 'https://www.topik.go.kr/TWMAIN/TWMAIN0010.do' },
+    { title: '다문화가족센터 프로그램', text: 'https://www.liveinkorea.kr/portal/KOR/board/ctpg/boardList.do' },
   ];
 
   return (
