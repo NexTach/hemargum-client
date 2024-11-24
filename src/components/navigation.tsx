@@ -209,7 +209,7 @@ function Navigation() {
 
   const homeCardData: CardData[] = [
     { title: '숙박신고', text: 'https://kstay.hikorea.go.kr/index.do' },
-    { title: '주거22', text: 'ㅇ' },
+    { title: '주거22', text: '주거22' },
   ];
 
   const hospitalCardData: CardData[] = [
