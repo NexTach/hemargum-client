@@ -51,7 +51,15 @@ function Title({ title, text }: { title: string; text: string }) {
           <TextH1>{title}</TextH1>
         </TitleBox>
         <ContentsWrapper>
-          <TextP>{text}</TextP>
+          {text.startsWith('https:') ? (
+            <TextP>
+              <a href={text} target="_blank" rel="noopener noreferrer">
+                {text}
+              </a>
+            </TextP>
+          ) : (
+            <TextP>{text}</TextP>
+          )}
         </ContentsWrapper>
       </TitleWrapper>
     </>
